@@ -1,22 +1,24 @@
 
-<div *ngIf="ArtistResult" >
+<div *ngIf="ArtistResult"  >
+  <ng-container >
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{ArtistResult.picture_medium}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{ArtistResult.name}}</h5>
+        <p class="card-text">Fans: {{ArtistResult.nb_fan}}</p>
+        <a href="{{ArtistResult.share}}" class="btn btn-primary">Share</a>
+      </div>
+    </div>
+    <div class="card">
 
-      <mat-card class="mat-elevation-z4">
-        <mat-card-header>
-          <mat-card-title>{{ArtistResult.name}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image src={{ArtistResult.picture_medium}} alt={{data.id}}>
-        <mat-card-content>
-          <p>
-            {{ArtistResult.picture_medium}} 
-            {{ArtistResult.tracklist}}          </p>
-        </mat-card-content>
-        <mat-card-actions>
-        </mat-card-actions>
-      </mat-card>
-
+    </div>
+  </ng-container>
+     
 </div>
 
 <div *ngIf="!ArtistResult" class="content">
   <p>Loading</p>
 </div>
+
+
+
