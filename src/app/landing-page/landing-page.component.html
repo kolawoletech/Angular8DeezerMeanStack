@@ -1,0 +1,40 @@
+<mat-form-field floatLabel="never">
+  <input matInput #searchInput="matInput" type="text" placeholder="Search" (focus)="onFocus()" autocomplete="off" />
+  <mat-icon [color]="searchInput.focused ? 'primary' : ''" matSuffix>search</mat-icon>
+</mat-form-field>
+
+<form [formGroup]="searchArtistForm" (ngSubmit)="submitArtistForm()">
+  <input formControlName="query" placeholder="Search">
+
+  <button type="submit">Submit</button>
+</form>
+<mat-toolbar color="primary">
+  <span>Card view demo</span>
+  <button mat-button (click)="toggleGridColumns()" fxHide.lt-md>
+    <span *ngIf="gridColumns === 4">Three Columns</span>
+    <span *ngIf="gridColumns === 3">Four Columns</span>
+  </button>
+</mat-toolbar>
+
+
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let data of ArtistResultsData">
+      <mat-card class="mat-elevation-z4">
+        <mat-card-header>
+          <mat-card-title>Mountains {{num}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src={{data.artist.picture}} alt={{data.id}}>
+        <mat-card-content>
+          <p>
+            The Himalayas is a mountain range in Asia.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button routerLink="/artist-page/{{data.id}}">VIEW</button>
+          <button mat-button>SAVE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
