@@ -5,11 +5,7 @@
 </div>
 
 <p *ngIf="ArtistData.length <= 0" class="no-data">There is no artist added yet!</p>
-<form [formGroup]="searchArtistForm" (ngSubmit)="submitArtistForm()">
-  <input formControlName="query" placeholder="ID/Passport Number"   >
 
-  <button type="submit">Submit</button>
-</form>
 
 <div class="container" *ngIf="ArtistData.length > 0">
 

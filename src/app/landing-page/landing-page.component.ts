@@ -66,6 +66,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   saveToDb(data){
+    console.log("sendofn ", data)
     this.deezerApi.saveArtist(data).subscribe(res=>{
       this.ngZone.run(() => this.router.navigateByUrl('/artist-list'))
 

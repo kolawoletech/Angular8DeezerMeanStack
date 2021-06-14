@@ -16,13 +16,31 @@ let Artist = new Schema({
   picture: {
     type: String
   },
+  picture_big: {
+    type: String
+  },
+  picture_small: {
+    type: String
+  },
+  picture_xl: {
+    type: String
+  },
+  picture_medium: {
+    type: String
+  },
   nb_fan: {
-    type: Array
+    type: Number
+  },
+  nb_album: {
+    type: Number
   },
   radio: {
     type: Boolean
   },
   type: {
+    type: String
+  },
+  tracklist: {
     type: String
   }
 }, {
