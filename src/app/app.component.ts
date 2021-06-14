@@ -1,5 +1,4 @@
 import { Component, ViewChild, HostListener, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
@@ -43,6 +42,5 @@ export class AppComponent {
     }
   }
 
-  sampleForm: FormGroup;
 
 }

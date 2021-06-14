@@ -34,7 +34,7 @@
           </mat-card-content>
           <mat-card-actions>
             <button mat-button routerLink="/artist-page/{{data.id}}">VIEW</button>
-            <button mat-button>SAVE</button>
+            <button mat-button (click)=saveToDb(data)>SAVE</button>
           </mat-card-actions>
         </mat-card>
       </div>
