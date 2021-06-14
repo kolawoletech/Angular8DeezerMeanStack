@@ -9,3 +9,9 @@ mat-toolbar {
 .content > mat-card {
     margin-bottom: 16px;
 }
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+
+  }

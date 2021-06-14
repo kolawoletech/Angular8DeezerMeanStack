@@ -32,7 +32,7 @@ export class ArtistPageComponent implements OnInit {
 
       // this.router.navigate(['/dashboard/clients'])
 
-      this.ArtistResult = res.data;
+      this.ArtistResult = res;
     })
 
   }
