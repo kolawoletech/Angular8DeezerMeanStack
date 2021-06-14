@@ -1,15 +1,18 @@
-<mat-form-field floatLabel="never">
-  <input matInput #searchInput="matInput" type="text" placeholder="Search" (focus)="onFocus()" autocomplete="off" />
-  <mat-icon [color]="searchInput.focused ? 'primary' : ''" matSuffix>search</mat-icon>
-</mat-form-field>
+
 
 <form [formGroup]="searchArtistForm" (ngSubmit)="submitArtistForm()">
-  <input formControlName="query" placeholder="Search">
 
-  <button type="submit">Submit</button>
+
+
+  <mat-form-field floatLabel="never">
+    <input formControlName="query" matInput #searchInput="matInput" type="text" placeholder="Search" (focus)="onFocus()" autocomplete="off" />
+  </mat-form-field>
+
+  <button mat-button type="submit">Search</button>
+
 </form>
 <mat-toolbar color="primary">
-  <span>Card view demo</span>
+  <span>Artist Search</span>
   <button mat-button (click)="toggleGridColumns()" fxHide.lt-md>
     <span *ngIf="gridColumns === 4">Three Columns</span>
     <span *ngIf="gridColumns === 3">Four Columns</span>
