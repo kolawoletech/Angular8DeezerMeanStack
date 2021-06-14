@@ -1,11 +1,10 @@
-
-
 <form [formGroup]="searchArtistForm" (ngSubmit)="submitArtistForm()">
 
 
 
   <mat-form-field floatLabel="never">
-    <input formControlName="query" matInput #searchInput="matInput" type="text" placeholder="Search" (focus)="onFocus()" autocomplete="off" />
+    <input formControlName="query" matInput #searchInput="matInput" type="text" placeholder="Search" (focus)="onFocus()"
+      autocomplete="off" />
   </mat-form-field>
 
   <button mat-button type="submit">Search</button>
@@ -27,10 +26,10 @@
         <mat-card-header>
           <mat-card-title>Mountains {{num}}</mat-card-title>
         </mat-card-header>
-        <img mat-card-image src={{data.artist.picture}} alt={{data.id}}>
+        <img mat-card-image src={{data.picture_big}} alt={{data.id}}>
         <mat-card-content>
           <p>
-            The Himalayas is a mountain range in Asia.
+            Number of Fans: {{data.nbfan}}
           </p>
         </mat-card-content>
         <mat-card-actions>
