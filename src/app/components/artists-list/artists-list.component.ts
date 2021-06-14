@@ -24,6 +24,13 @@ export class ArtistsListComponent implements OnInit {
     private deezerApi : DeezerService
   ) {
 
+    this.deezerApi.getSavedArtists().subscribe(data => {
+      this.ArtistData = data;
+      this.dataSource = new MatTableDataSource<Artist>(this.ArtistData);
+      setTimeout(() => {
+        this.dataSource.paginator = this.paginator;
+      }, 0);
+    })    
 
     this.searchArtistForm = formBuilder.group({
       query: ['',  [Validators.required]]

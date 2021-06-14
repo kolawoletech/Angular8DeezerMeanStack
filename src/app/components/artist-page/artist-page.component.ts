@@ -40,7 +40,6 @@ export class ArtistPageComponent implements OnInit {
   saveArtistLocally(data){
 
     return this.deezerApi.saveArtist(data).subscribe(res => {
-      console.log('Returmed Promsie from CI=> ', res)
 
       // this.router.navigate(['/dashboard/clients'])
 

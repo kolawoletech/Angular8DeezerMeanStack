@@ -3,6 +3,7 @@ const app = express();
 const artistRoute = express.Router();
 const DeezerPublicApi = require('deezer-public-api');
 let deezer = new DeezerPublicApi();
+let Artist = require('../model/Artist');
 
 artistRoute.route('/search').get((req, res) => {
 
@@ -28,14 +29,21 @@ artistRoute.route('/artist').get((req, res) => {
      });
 })
 
-
-let Artist = require('../model/Artist');
+// Get all 
+artistRoute.route('/saved').get((req, res) => {
+    Artist.find((error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        res.json(data)
+      }
+    })
+  })
 
 // Add Artist
 artistRoute.route('/save').post((req, res, next) => {
 
-    console.log(req.body, "them bady")
-  Artist.create(req.body, (error, data) => {
+    Artist.create(req.body, (error, data) => {
 
     if (error) {
         console.log("error")

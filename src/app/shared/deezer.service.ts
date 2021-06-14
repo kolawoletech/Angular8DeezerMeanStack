@@ -44,6 +44,7 @@ export class DeezerService {
 
 
   saveArtist(data: Artist): Observable<any> {
+    console.log(data , "free")
     return this.http.post<any>(`${this.endpoint}/save/`, data)
       .pipe(
         catchError(this.errorMgmt)
@@ -51,7 +52,7 @@ export class DeezerService {
   }
 
   getSavedArtists() {
-    return this.http.get(`${this.endpoint}`);
+    return this.http.get(`${this.endpoint}/saved`);
   }
 
 
