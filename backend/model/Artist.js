@@ -10,6 +10,12 @@ let Artist = new Schema({
   link: {
     type: String
   },
+  _id: {
+    type: String
+  },
+  id: {
+    type: String
+  },
   picture: {
     type: String
   },

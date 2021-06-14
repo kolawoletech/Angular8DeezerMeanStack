@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { DeezerService } from 'src/app/shared/deezer.service';
+import { StringDecoder } from 'string_decoder';
 
 @Component({
   selector: 'app-artists-list',
@@ -16,7 +17,7 @@ export class ArtistsListComponent implements OnInit {
   ArtistData: any = [];
   dataSource: MatTableDataSource<Artist>;
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  displayedColumns: string[] = ['_id', 'name', 'nb_fan', 'type', 'action'];
+  displayedColumns: string[] = ['id', 'name'];
   searchArtistForm: FormGroup
 
   constructor(
@@ -26,6 +27,7 @@ export class ArtistsListComponent implements OnInit {
 
     this.deezerApi.getSavedArtists().subscribe(data => {
       this.ArtistData = data;
+      console.log(data, "ssss")
       this.dataSource = new MatTableDataSource<Artist>(this.ArtistData);
       setTimeout(() => {
         this.dataSource.paginator = this.paginator;
