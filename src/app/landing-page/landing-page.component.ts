@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { DeezerService } from 'src/app/shared/deezer.service';
 import { ActivatedRoute, Router } from "@angular/router";
+import { NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-landing-page',
@@ -24,7 +25,9 @@ export class LandingPageComponent implements OnInit {
     public formBuilder: FormBuilder,
     private deezerApi: DeezerService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private ngZone: NgZone,
+
   ) {
 
     this.searchArtistForm = formBuilder.group({
@@ -61,5 +64,18 @@ export class LandingPageComponent implements OnInit {
     this.router.navigate(['/artist-page', id]);
 
   }
+
+  saveToDb(data){
+    this.deezerApi.saveArtist(data).subscribe(res=>{
+      this.ngZone.run(() => this.router.navigateByUrl('/artist-list'))
+
+    })
+
+    
+  }
+
+    /* Get errors */
+    public handleError = (controlName: string, errorName: string) => {
+    }  
 
 }
